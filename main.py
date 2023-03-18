@@ -19,9 +19,6 @@ def send_message(text):
 
 port = int(os.environ.get('PORT', 5000))
 
-if __name__ == '__main__':
-    marbot.run(host='0.0.0.0', port=port)
-
 while True:
     try:
         response = requests.get(url, auth=(username, password))
@@ -31,4 +28,3 @@ while True:
     except requests.exceptions.RequestException as e:
         logging.error(f'Error: {e}')
     time.sleep(300)
-
