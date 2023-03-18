@@ -5,8 +5,8 @@ import logging
 
 api_token = os.environ.get('6198152820:AAGF-UdQcb73viKIS8sdx_SvGPZjeOjc0cI')
 chat_id = os.environ.get('-1001815304804')
-username = os.environ.get('admin')
-password = os.environ.get('root')
+WEB_USERNAME = os.environ.get('admin')
+WEB_PASSWORD = os.environ.get('root')
 url = 'https://server-7-mar.glitch.me/list'
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -21,7 +21,7 @@ port = int(os.environ.get('PORT', 5000))
 
 while True:
     try:
-        response = requests.get(url, auth=(username, password))
+        response = requests.get(url, auth=(WEB_USERNAME, WEB_PASSWORD))
         if response.status_code == 401:
             logging.error('Error: Invalid username or password')
         response.raise_for_status()
