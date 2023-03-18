@@ -17,6 +17,8 @@ def send_message(text):
     response = requests.post(url, data=data)
     logging.info(f'Response from Telegram: {response.status_code}, {response.text}')
 
+port = int(os.environ.get('PORT', 5000))
+
 while True:
     try:
         response = requests.get(url, auth=(username, password))
