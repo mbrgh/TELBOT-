@@ -22,6 +22,8 @@ port = int(os.environ.get('PORT', 5000))
 while True:
     try:
         response = requests.get(url, auth=(username, password))
+        if response.status_code == 401:
+            logging.error('Error: Invalid username or password')
         response.raise_for_status()
         send_message(response.text)
         logging.info('Message sent successfully')
