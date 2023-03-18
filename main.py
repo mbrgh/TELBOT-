@@ -17,7 +17,10 @@ def send_message(text):
     response = requests.post(url, data=data)
     logging.info(f'Response from Telegram: {response.status_code}, {response.text}')
 
-port = int(os.environ.get('PORT', 3000))
+port = int(os.environ.get('PORT', 5000))
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=port)
 
 while True:
     try:
@@ -28,3 +31,4 @@ while True:
     except requests.exceptions.RequestException as e:
         logging.error(f'Error: {e}')
     time.sleep(300)
+
